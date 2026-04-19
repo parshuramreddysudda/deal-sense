@@ -63,11 +63,21 @@ h1, h2, h3, h4, h5, h6 {
   padding: 20px;
 }
 
-/* Core Layout */
+/* Core Layout — full viewport width, no centered column */
+html, body, #root {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
 .app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  width: 100%;
+  max-width: none;
+  margin: 0;
 }
 
 .top-bar {
@@ -118,23 +128,40 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 2px solid var(--accent-lime);
 }
 
+/* Main content — full width, 24px horizontal padding on every tab */
 .main-content {
-  display: flex;
+  display: block;
   flex: 1;
-  padding: 30px;
-  gap: 30px;
+  padding: 24px;
+  width: 100%;
+  max-width: none;
 }
 
-.left-col {
-  flex: 1;
+/* Deal Analyser uses a two-column grid; other tabs use full width */
+.analyser-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 0;
+  min-height: calc(100vh - 120px);
+  width: 100%;
+}
+
+.analyser-grid .left-col {
+  padding-right: 24px;
+  border-right: 1px solid #1e2535;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  min-width: 0;
 }
 
-.right-sidebar {
+.analyser-grid .right-sidebar {
   width: 300px;
-  flex-shrink: 0;
+  padding-left: 24px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -213,6 +240,7 @@ h1, h2, h3, h4, h5, h6 {
 .bg-red-dim { background-color: rgba(255, 77, 106, 0.1); border: 1px solid var(--risk-red); color: var(--risk-red); }
 .bg-amber-dim { background-color: rgba(245, 166, 35, 0.1); border: 1px solid var(--risk-amber); color: var(--risk-amber); }
 .bg-green-dim { background-color: rgba(0, 214, 143, 0.1); border: 1px solid var(--risk-green); color: var(--risk-green); }
+.bg-grey-dim { background-color: rgba(154, 162, 181, 0.08); border: 1px solid var(--border-color); color: var(--text-muted); }
 
 /* Score Cards */
 .scores-grid {
@@ -286,12 +314,19 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-@media (max-width: 768px) {
-  .main-content {
-    flex-direction: column;
+@media (max-width: 900px) {
+  .analyser-grid {
+    grid-template-columns: 1fr;
   }
-  .right-sidebar {
+  .analyser-grid .left-col {
+    padding-right: 0;
+    border-right: none;
+  }
+  .analyser-grid .right-sidebar {
+    position: static;
     width: 100%;
+    padding-left: 0;
+    height: auto;
   }
   .scores-grid {
     grid-template-columns: 1fr;

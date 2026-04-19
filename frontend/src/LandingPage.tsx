@@ -1,4 +1,3 @@
-import React from 'react';
 import { ShieldCheck, ArrowRight, Activity, FileText } from 'lucide-react';
 
 export default function LandingPage({ onEnterApp, onDemo }: { onEnterApp: () => void, onDemo: () => void }) {

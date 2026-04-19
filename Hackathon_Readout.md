@@ -11,7 +11,8 @@ We successfully built a complete full-stack MERN-style web application (React/Vi
    * **Deal Risk (100pt scale)**: Combining financial risk profiles (refinancing cliffs, LTV) with ESG gap penalties.
 * **Prioritised Action Plan**: The system algorithmically proposes immediate actions (e.g., HVAC retrofit, LED enhancements) ordered by payback period and CO₂ elimination.
 * **Dynamic Board Briefs (PDFs):** Integrated a backend `puppeteer` server capable of headless rendering the DealSense dashboard directly into a downloadable A4 PDF asset on request.
-* **Executive Dashboard & Modular Tabs**: Built a sleek, "luxury PropTech" dark-themed UI featuring deal scores. We also explicitly componentized full standalone React views for **ESG Portfolio**, **Action Plan**, and **Reports**, demonstrating structural scalability.
+* **Executive Dashboard & Modular Tabs**: Built a sleek, "luxury PropTech" dark-themed UI relying on strict `Syne` and `DM Mono` typography. We extensively utilized **Recharts** to display complex Data visualization (10-yr ROI plots, ESG Donut charts, CRREM target bars). 
+* **Seamless Landing & Demo States:** Built a dedicated `LandingPage` that intercepts users, displaying clear CBRE value props. We also implemented a `?demo=true` one-click seed feature that perfectly stages a board-ready dashboard instantly, eliminating risk of live-typing failures during the pitch.
 
 ---
 
@@ -19,13 +20,13 @@ We successfully built a complete full-stack MERN-style web application (React/Vi
 When presenting to the judges/audience, execute the following script:
 
 1. **Launch The App:** Open a `cmd.exe` terminal in the `initial-setup` directory and run `npm start` to concurrently spool up the backend and frontend.
-2. **The Pitch (Homepage):** Introduce "DealSense ESG" as a board-ready platform that merges financial underwriting with stringent ESG risk data.
-3. **Data Entry (The Form):** Walk through the **"Deal Analyser"** tab. Fill in a standard commercial asset (e.g., *Mindspace IT Park, Hyderabad*). Explain how real brokers input standard deal terms alongside core utilities and HVAC details. 
-4. **The Reveal (Dashboard):** Hit **Analyse**. Watch the scores animate in. Emphasize that the risk score isn't just arbitrary; it mathematically blends the refinancing risk associated with the deal terms directly against poor CSRD (refrigerant) compliance gaps.
-5. **The ROI (Action Plan):** Click over to the dedicated **Action Plan tab**. Show how DealSense has algorithmically extracted the proposed retrofits (e.g., Refrigerant Tracking Software), calculating literal dollar savings and payback periods in a clean, standalone view.
-6. **The Hand-Off (Report Export):** Go back to the 'Deal Analyser' dashboard and click **Export Board Brief PDF**. Open the generated PDF to prove the platform natively yields board-reviewable artifacts. 
-7. **Saved Reports:** Click the **Reports tab** to show how generated reports are logged and stored for subsequent asset manager underwritings.
-8. **The Vision (Portfolio Tab):** Finally, click over to the **ESG Portfolio tab** to showcase the broader "Asset Manager" vision for multi-property tracking, highlighting the foundational tabular data layer we built.
+2. **The Landing Page Pipeline:** Go to `localhost:5173`. You will land on the new DealSense ESG Landing page. Read out the value props (Risk in 60s, Auto-Compliance, Board-Ready output).
+3. **The Speed-Run (One-Click Demo):** To impress upon speed, do NOT type out the form live. Simply click the **"View demo dashboard"** outline button. This executes our `?demo=true` payload injection, instantly seeding the form and transitioning to the Analyser dashboard with Mindspace IT Park, Hyderabad data.
+4. **The Reveal (Dashboard):** Watch the SVG rings and progress bars animate in. Emphasize how the Risk Breakdown engine explicitly maps the refinancing risk directly against poor CSRD (refrigerant) compliance gaps.
+5. **The ROI (Action Plan):** Click over to the dedicated **Action Plan tab**. Show the interactive **10-Year Cumulative Savings Line Chart** powered by Recharts, proving compound payback periods dynamically filtered by "Quick Wins" vs "Compliance-Driven" tasks.
+6. **The Vision (Portfolio Tab):** Click over to the **ESG Portfolio tab** to showcase the "Asset Manager" scale. Display the Carbon vs CRREM horizontal bar chart, the ESG Health Heatmap, and the Donut breakdown of the full 5-asset portfolio.
+7. **The Hand-Off (Report Export):** Go back to the 'Deal Analyser' tab and click **Export Board Brief PDF**. Open the generated PDF to prove the platform natively yields printable artifacts without breaking a sweat.
+8. **Saved Reports Archive:** Briefly click the **Reports tab** to show how those generated reports are tracked lifetime, validating the platform's utility as a system of record.
 
 ---
 
