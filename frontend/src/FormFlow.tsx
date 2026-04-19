@@ -179,7 +179,7 @@ export default function FormFlow({ onComplete }: { onComplete: (data: any) => vo
     setLoading(true);
     setSubmitError(null);
     try {
-      const res = await axios.post('http://localhost:3001/api/analyse', buildPayload(), {
+      const res = await axios.post('/api/analyse', buildPayload(), {
         timeout: 15000,
       });
       onComplete(res.data);
@@ -187,7 +187,7 @@ export default function FormFlow({ onComplete }: { onComplete: (data: any) => vo
       console.error('Analyse request failed:', err);
       let message: string;
       if (err?.code === 'ERR_NETWORK' || err?.message?.includes('Network Error')) {
-        message = 'Could not reach the DealSense backend on http://localhost:3001. Make sure it is running (npm start from the repo root, or npm run start:backend).';
+        message = 'Could not reach the DealSense scoring API. In local dev make sure the backend is running (npm start from the repo root). In production check the Vercel function logs.';
       } else if (err?.response) {
         message = `Backend returned ${err.response.status}: ${err.response.data?.error || err.response.statusText || 'unknown error'}`;
       } else if (err?.code === 'ECONNABORTED') {

@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Thin Express wrapper for local dev. Production runs on Vercel serverless functions in /api.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -13,9 +13,6 @@
   "type": "commonjs",
   "dependencies": {
     "cors": "^2.8.6",
-    "dotenv": "^17.4.2",
-    "express": "^5.2.1",
-    "multer": "^2.1.1",
-    "puppeteer": "^24.41.0"
+    "express": "^5.2.1"
   }
 }
